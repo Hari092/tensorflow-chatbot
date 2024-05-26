@@ -1,0 +1,61 @@
+{
+    "intents": [
+      {
+        "tag": "greet",
+        "patterns": ["Hi", "Hello", "Hey","hii"],
+        "responses": ["Hello! How can I assist you today?\n1.Calculate my tax", "Hi there! How can I help you?\n1.Calculate my tax"]
+      },
+      {
+        "tag":"no_Response",
+        "patterns":[" "],
+        "responses":["I'm sorry, I didn't understand that. Could you please rephrase?",
+        "I didn't catch that. Can you say it in a different way?",
+        "I'm not sure what you mean. Can you clarify?"]
+      },
+      {
+        "tag": "ask_income",
+        "patterns": ["I want to calculate my tax", "Calculate my tax", "How much tax do I need to pay?","1","tax","calculate tax"],
+        "responses": ["Sure, I can help with that!"]
+      },
+      {
+        "tag": "ask_age",
+        "patterns": ["My annual income is [income]", "I earn [income] per year","[income]"],
+        "responses": ["Got it. Can you please tell me your age?"]
+      },
+      {
+        "tag": "calculate_tax",
+        "patterns": ["I am [age] years old", "I am [age]", "My age is [age]","[age]"],
+        "responses": ["Thank you! Let me calculate your tax..."]
+      },
+      {
+        "tag": "thanks",
+        "patterns": [
+          "Thanks",
+          "Thank you",
+          "Thanks a lot",
+          "Thank you very much"
+        ],
+        "responses": [
+          "You're welcome!",
+          "Happy to help!",
+          "No problem!",
+          "Anytime!"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": [
+          "Bye",
+          "Goodbye",
+          "See you later",
+          "Talk to you later"
+        ],
+        "responses": [
+          "Goodbye! Have a great day!",
+          "Bye! Take care!",
+          "See you later! Have a nice day!"
+        ]
+      }
+    ]
+  }
+  
