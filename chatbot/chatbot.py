@@ -52,7 +52,6 @@ def extract_number(message):
     return numbers[0] if numbers else None
 
 def calculate_total_income(income_sources):
-    """Calculates the total income by summing up all income sources."""
     total_income = sum(income_sources.values())
     return total_income
 
@@ -98,7 +97,13 @@ def calculate_tax_new_regime(taxable_income):
     else:
         tax = 150000 + (taxable_income - 1500000) * 0.30
     return tax
-
+def suggest_tax(tax_old_regime,tax_new_regime):
+    if tax_old_regime < tax_new_regime:
+        return "Based on Calculations ,Old tax regime is more benificial."
+    elif tax_old_regime > tax_new_regime:
+        return "Based on Calculations ,New tax regime is more benificial."
+    else:
+        return "Both Old and New Tax regime is same."
 print("Bot running")
 
 income_sources = {}
@@ -158,7 +163,7 @@ while True:
                 print(f"Bot: Please enter your {deduction_categories[deduction_index]}:")
                 asked_deduction_category = deduction_categories[deduction_index]
             else:
-                total_deductions = sum(deductions.values())
+                total_deductions = sum(deductions.values())+50000
                 print(f"Bot: Got all your deduction details. Your total deductions are {total_deductions}. Can you please tell me your age?")
                 asked_deduction_category = None
                 asked_age = True
@@ -170,7 +175,7 @@ while True:
             print("Bot: Sorry, I couldn't understand your age. Please enter a valid number.")
         else:
             total_income = calculate_total_income(income_sources)
-            total_deductions = sum(deductions.values())
+            total_deductions = sum(deductions.values())+50000
             taxable_income = total_income - total_deductions
             tax_old_regime = calculate_tax_old_regime(taxable_income, age)
             tax_new_regime = calculate_tax_new_regime(taxable_income)
@@ -178,6 +183,8 @@ while True:
             print(f"your taxable income is {taxable_income}.")
             print(f"Under the old regime, your tax is: {tax_old_regime}")
             print(f"Under the new regime, your tax is: {tax_new_regime}")
+            suggestion = suggest_tax(tax_old_regime, tax_new_regime)
+            print(f"Bot: {suggestion}")
             asked_age = False
         continue
     
@@ -213,3 +220,5 @@ while True:
             print(f"your taxable income is {taxable_income}.")
             print(f"Under the old regime, your tax is: {tax_old_regime}")
             print(f"Under the new regime, your tax is: {tax_new_regime}")
+            suggestion = suggest_tax(tax_old_regime, tax_new_regime)
+            print(f"Bot: {suggestion}")
