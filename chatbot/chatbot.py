@@ -127,10 +127,7 @@ def chatbot_response(message, income_sources, deductions, age):
     category_index = 0
     deduction_index = 0
     
-    # Additional logic to handle user interaction and return responses
-    # similar to the original script's while loop
-    
-    # For simplicity, let's assume the response is based on a single message
+   
     if 'income' in message.lower():
         # Simulate income entry logic
         amount = extract_number(message)
