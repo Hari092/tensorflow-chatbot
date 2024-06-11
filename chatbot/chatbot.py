@@ -101,6 +101,7 @@ def calculate_tax_new_regime(taxable_income):
 
 print("Bot running")
 
+<<<<<<< HEAD
 income_sources = {}
 deductions = {}
 age = None
@@ -131,6 +132,32 @@ while True:
         break
 
     if asked_income_category is not None:
+=======
+def chatbot_response(message, income_sources, deductions, age):
+    income_categories = [
+        "Basic salary income",
+        "Annual income from other sources",
+        "Annual income from interest",
+        "Annual income from let-out house property (rental income)",
+        "Dearness allowance (DA) received per annum",
+        "HRA received per annum"
+    ]
+    deduction_categories = [
+        "Basic deductions u/s 80C",
+        "Contribution to NPS u/s 80CCD(1B)",
+        "Medical Insurance Premium u/s 80D",
+        "Donation to charity u/s 80G",
+        "Interest on Educational Loan u/s 80E",
+        "Interest on deposits in saving account u/s 80TTA/TTB"
+    ]
+    
+    category_index = 0
+    deduction_index = 0
+    
+   
+    if 'income' in message.lower():
+        # Simulate income entry logic
+>>>>>>> d1aad0ec6aa9cf36a5304c130eb391e265120540
         amount = extract_number(message)
         if amount is None:
             print(f"Bot: Sorry, I couldn't understand your income for {income_categories[category_index]}. Please enter a valid number.")
